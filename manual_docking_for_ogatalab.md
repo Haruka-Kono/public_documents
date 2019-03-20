@@ -1,4 +1,4 @@
-#AutoDock-Vinaを用いたドッキングシミュレーションマニュアル（尾形研用）
+# AutoDock-Vinaを用いたドッキングシミュレーションマニュアル（尾形研用）
 
 # はじめに
 本マニュアルは，AutoDock Vinaというドッキングシミュレーションソフトを用いてタンパク質とリガンドのドッキングシミュレーションを行う方法について説明したものです．ちなみに，マニュアル本体は[https://github.com/Haruk-Kono/public_documents/wiki](https://github.com/Haruk-Kono/public_documents/wiki) にあります．もしかしたら更新するかもしれないので最新版はリンクを参照してもらえると幸いです．
