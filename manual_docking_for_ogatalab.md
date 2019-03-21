@@ -74,7 +74,7 @@ legacyバージョンのPyMOLはIDのアルファベットを大文字にしな�
 ***
 
 ③**水分子の除去**
-先ほどの操作でリゾチームの立体構造が下図のように表示されると思います．これはリゾチームとキチンオリゴ糖誘導体との共結晶です．周りにある赤い点たちは水分子です．見た目にも邪魔なうえ，水分子があるとドッキングでエラーが起こるためにこれらを消去します．PyMOL Viewer内の右側，```4HP0```というパネルの隣にある```A```をクリックします（下図赤丸参照）．
+先ほどの操作でリゾチームの立体構造が下図のように表示されると思います．これはリゾチームとキチンオリゴ糖誘導体（GN3M）との共結晶です．今回のシミュレーションでは，GN3Mの代わりにGalGN3Dをドッキングさせるため，GN3Mは後ほど除去しますが，Grid Boxを設定するまではそのままにしておきます．周りにある赤い点たちは水分子です．見た目にも邪魔なうえ，水分子があるとドッキングでエラーが起こるためにこれらを消去します．PyMOL Viewer内の右側，```4HP0```というパネルの隣にある```A```をクリックします（下図赤丸参照）．
 
 <img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_regacy_prep_rec_13.PNG" width="640px">　
 
@@ -103,10 +103,27 @@ PyMOL上側のウィンドウにて，```Plugin```→```AutoDock/Vina```とク�
 **⑤Grid Boxの調整**
 まずBoxの中心をリガンド結合部位のちょうどいいところに持ってきます（ここら辺の位置調整に厳密なルールはないので，自分なりの微調整が必要になってきますが，これは慣れていくしかないです）．PyMOL Viewerにてリガンド分子をクリックします（下図１参照）．すると，Viewerの```(sele)```パネルに選択したリガンドが紐づけられます．
 
-続いて，AutoDock/Vinaプラグインに戻り，```Calculate Grid Center by Selection```の入力欄に**sele**と入力します．その後，```Show Box```をクリックするとBoxの位置が更新され，中心が選択したリガンドのところに来ます（下図2,3参照）．
-
+AutoDock/Vinaプラグインに戻り，```Calculate Grid Center by Selection```の入力欄に**sele**と入力します．その後，```Show Box```をクリックするとBoxの位置が更新され，中心が選択したリガンドのところに来ます（下図2,3参照）．
 
 <img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_regacy_prep_rec_5.PNG" width="640px">
+
+次にBoxの大きさを調整していきます．AutoDock/Vinaプラグインの```Grid Definition```>```Parameters```にて，```X-points=18```, ```Y-points=30```, ```Z-points=15```と入力し，```Show Box```をクリックするとBoxの大きさが変わります（下図参照）．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_regacy_prep_rec_6.PNG" width="640px">
+
+
+***
+
+**⑥レセプター分子の調整**
+ここまでの手順でGrid Boxをそれっぽい大きさにすることはできましたが，レセプターであるリゾチームの結合領域からは少しずれています．リゾチームの結合領域は横長であるため，Boxと向きが合わないとこのようになってしまいます．**Grid Boxのパラメータで操作できるのは中心の座標と各辺のサイズのみであり，軸を回転させることはできない**ため，今回のケースではレセプターのリゾチーム自身を動かしてBoxに合わせていく必要があります．
+
+PyMOL Viewerに戻り，右側の```4hp0```パネルから，```A```→```drag coordinates```を選択します（下図参照）．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_regacy_prep_rec_14.PNG" width="300px">
+
+分子をBoxに合わせていきます．```Shift + 左ドラッグ```で分子が回転，```Shift + 中ドラッグ```で分子が移動します．この2つを駆使してうまいこと結合部位をBoxに合わせてください（身もふたもない説明で申し訳ないですが，Boxがらみのパラメーター調整は経験を積んでいくしかないので...）．気を付ける点としては，**ドッキングシミュレーションの際，リガンドはBoxの範囲内でレセプターと相互作用する**ということです．そのため，ドッキングさせようとするリガンドの大きさを考え，結合部位にリガンドが収まるかどうかを気にして調整してみてください．下図のようにいい感じになったら，Viewer右側のパネルにある```Done```をクリックすると，```drag coordinates```モードが終了します．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_regacy_prep_rec_7.PNG" width="620px">
 
 ### mopac2016のinputファイル（GalGN3D_fortest.mop）
 1行目の#はコメントなので実際は入力しない
