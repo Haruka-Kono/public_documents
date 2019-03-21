@@ -1,4 +1,4 @@
-# AutoDock-Vinaを用いたドッキングシミュレーションマニュアル（尾形研用）
+# AutoDock-Vinaを用いたドッキングシミュレーションマニュアル（保存用）
 
 # はじめに
 本マニュアルは，AutoDock Vinaというドッキングシミュレーションソフトを用いてタンパク質とリガンドのドッキングシミュレーションを行う方法について説明したものです．ちなみに，マニュアル本体は[https://github.com/Haruk-Kono/public_documents/wiki](https://github.com/Haruk-Kono/public_documents/wiki) にあります．もしかしたら更新するかもしれないので最新版はリンクを参照してもらえると幸いです．
@@ -16,7 +16,7 @@ Scripps Research InstituteのTrottらによって開発されたフリーのド�
 - ドッキング条件などの設定ファイル（configファイル）
 
 ## 使用ソフト
-以下すべて尾形研のワークステーションに導入済ソフトウェアのため，インストール手順等は省略します．時間があったら，自分用の記録もかねて導入マニュアルを別途作成するかもしれないです．その際はこのマニュアルと同じ[https://github.com/Haruk-Kono/public_documents/wiki](https://github.com/Haruk-Kono/public_documents/wiki) に，本マニュアルとは別ページ扱いで載せます．
+以下すべて研究室のワークステーションに導入済ソフトウェアのため，インストール手順等は省略します．時間があったら，自分用の記録もかねて導入マニュアルを別途作成するかもしれないです．その際はこのマニュアルと同じ[https://github.com/Haruk-Kono/public_documents/wiki](https://github.com/Haruk-Kono/public_documents/wiki) に，本マニュアルとは別ページ扱いで載せます．
 - AutoDock Vina（ドッキングシミュレーション実行ソフト）
 - AutoDockTools（レセプター，リガンドのpdbqtファイル等の作成用）
 - PyMOL（分子描画ソフト．今回はレセプターやリガンド構造の下準備，Grid Box設定および結果の確認等に使う）
@@ -26,7 +26,7 @@ Scripps Research InstituteのTrottらによって開発されたフリーのド�
 - cygwin（シミュレーション用のプログラムを動かすために使う）
 
 ## 具体的なドッキングシミュレーション手順（リゾチームとGalGN3Dのドッキングシミュレーションを例に）
-今回は，尾形研で実際に行った，リゾチームとGalGN3Dとのドッキングシミュレーション（[A novel analytical procedure for assaying lysozyme activity using an end-blocked chitotetraose derivative as substrate](https://doi.org/10.1016/j.ab.2017.09.015)）を例にとって手順を説明していきます．そのため，ドッキングする対象化合物によってはここに書いてある手順じゃないことをする場合がありますがそこはご容赦願います．特にリガンドの作り方は，手に入るデータや構造次第でやり方が何通りもあるのですが，多分ある程度ドッキングに慣れてきたら対処できるはず...です．　もし分からなかったら一番最初に書いたアドレスにメールください．
+今回は，かつて実際に行った，リゾチームとGalGN3Dとのドッキングシミュレーション（[Ogata, M. et al., 2017](https://doi.org/10.1016/j.ab.2017.09.015)）を例にとって手順を説明していきます．そのため，ドッキングする対象化合物によってはここに書いてある手順じゃないことをする場合がありますがそこはご容赦願います．特にリガンドの作り方は，手に入るデータや構造次第でやり方が何通りもあるのですが，多分ある程度ドッキングに慣れてきたら対処できるはず...です．　もし分からなかったら一番最初に書いたアドレスにメールください．
 
 ### 前提条件（フォルダ構成など）
 以下のようなフォルダ構成になっていることを前提として手順を説明していきます．尾形研のワークステーションでシミュレーションをする場合，条件をすでに満たしているので気にしなくて大丈夫です．
@@ -213,6 +213,14 @@ Viewerウィンドウのアミノ酸配列部分をスクロールしていく�
 下のように**obj01**を選択した状態で```Save```をクリックし（ほかのオプションは特にいじらなくて大丈夫です），C:\vina\pdb_ligand\に保存します．今回は，**3ayq_ligand.pdb**という名前で保存しました．
 
 <img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_ligand_6.PNG" width="500px">
+
+
+***
+
+**④AvogadroでPDBファイルを編集する　その1　結合の編集（追加，削除，角度変更など）**
+ここからは先ほど
+Avogadroを
+
 
 ### mopac2016のinputファイル（GalGN3D_fortest.mop）
 1行目の#はコメントなので実際は入力しない
