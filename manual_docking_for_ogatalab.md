@@ -450,24 +450,21 @@ Title
 ``` julia
 
 
-receptor=4hp0A_rot6.pdbqt
-ligand=GalGN3D_am1.pdbqt
-out=GalGN3D_am1_out2.pdbqt
-log=galgn3d2_log.txt
+receptor=c:\vina\receptor_pdbqt\4HP0_fordock.pdbqt
+ 
+center_x=23.47	
+center_y=4.38
+center_z=-8.27
 
-center_x=20.327
-center_y=4.949
-center_z=-6.185
-
-size_x=32
-size_y=21
+size_x=18	
+size_y=30
 size_z=15
 
-cpu=4
+cpu=8
 
-exhaustiveness = 8
+exhaustiveness = 50
 num_modes=100
-energy_range=5
+energy_range=3
 
 ```
 
@@ -478,4 +475,42 @@ kubota@ichinose-PC ~
 $ cd c:\vina
 kubota@ichinose-PC /cygdrive/c/vina
 $ ./vinaforcygwin2.sh
+ directories list
+# kokoni c:\vina\dock_result ni aru foruda ichiran ga hyoji saremasu
+ input saved directory (example:'directory_name/' or 'directory_name')
+4hp0_test
+mkdir: ディレクトリ './4hp0_test' を作成しました
+ config files list
+# kokoni c:\vina\config ni aru txt no ichiran ga hyuoji saremasu
+4hp0_test.txt
+ selected config file is '4hp0_test.txt'
+ ligand directories list
+# kokoni c:\vina\pdbqt_ligand\ ni aru foruda no ichiran ga hyuoji saremasu
+ select ligand included directory  (example:'directory_name/' or 'directory_name')
+4hp0_test/
+ selected directory is '4hp0_test'
+GalGN3D_am1.pdbqt
+ Processing liand 'GalGN3D_am1'
+#################################################################
+# If you used AutoDock Vina in your work, please cite:          #
+#                                                               #
+# O. Trott, A. J. Olson,                                        #
+# AutoDock Vina: improving the speed and accuracy of docking    #
+# with a new scoring function, efficient optimization and       #
+# multithreading, Journal of Computational Chemistry 31 (2010)  #
+# 455-461                                                       #
+#                                                               #
+# DOI 10.1002/jcc.21334                                         #
+#                                                               #
+# Please see http://vina.scripps.edu for more information.      #
+#################################################################
+
+Reading input ... done.
+Setting up the scoring function ... done.
+Analyzing the binding site ... done.
+Using random seed: -315345008
+Performing search ...
+0%   10   20   30   40   50   60   70   80   90   100%
+|----|----|----|----|----|----|----|----|----|----|
+*
 ```
