@@ -171,6 +171,17 @@ Viewerウィンドウのアミノ酸配列部分をスクロールしていく�
 
 <img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol.PNG" width="300px">
 
+ライセンスについてウィンドウが出てきますが，```skip activation```をクリックすれば大丈夫です．すると下図のような画面が出てきます．legacyよりちょっとスタイリッシュになっています．前述の通り，ウィンドウも上下で結合されているので使いやすいです．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_2_x_view.PNG" width="620px">
+
+***
+
+**②リガンドのテンプレート（PDB ID: 3AYQ)の読み込み**
+下図のように，PyMOLの入力窓にて```fetch 3ayq``` → ```Enter```とすると分子が表示されます．この3AYQもリゾチームとキチンオリゴ糖誘導体との複合体構造になっています．ちなみにこちらのPyMOLは大文字小文字を問わないので安心してください．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_fetch_3ayq.PNG" width="300px">
+
 ### mopac2016のinputファイル（GalGN3D_fortest.mop）
 1行目の#はコメントなので実際は入力しない
 
