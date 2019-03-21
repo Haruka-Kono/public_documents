@@ -267,13 +267,28 @@ Viewerウィンドウのアミノ酸配列部分をスクロールしていく�
 
 ***
 
-**⑤AvogadroでPDBファイルを編集する　その2　Galβ1→4GlcNAcを構築する（非還元末端にGalを結合させる）**
+**⑤AvogadroでPDBファイルを編集する　その2　Galβ1→4GlcNAcを構築する（末端にGalを結合させる）**
 ここまでの段階で，（構造最適化前ではあるものの）GN3Dが出来上がりました．あとはGalを結合させればGalGN3Dになります．
 
 メニューバーにて，```Build``` → ```Insert``` → ```Fragment...``` と選択します（下図）．
 
 <img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_12.PNG" width="300px">
 
+```Insert Fragment```ウィンドウが立ち上がるので，```cyclic sugar``` → ```beta-D-galactopyranose.cml```を選択し，```Insert```（下図）．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_13.PNG" width="300px">
+
+これで下図のようにGalが挿入されます．遠くの方で青く選択されているオブジェクトがGalです...遠いですね．めちゃくちゃ遠いです．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_14.PNG" width="600px">
+
+そこで，ツールバーで指アイコンを選択し，左ドラッグなどを駆使して末端のGlcNAcにGalを近づけていきます（下図）．ちなみに，右ドラッグで選択された分子のみ回転します．このテクニックも必要になってきます．後は，```Navigation Tool```（ツールバーの星型アイコンをクリックするとそのモードになる）で画面を回転させたりしながらうまいこと近づけていってください．なお，分子の選択ですが，ツールバーの矢印アイコンをクリックすると選択モードになります．ただ，ここでは使わなくて大丈夫です．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_15.PNG" width="600px">
+
+下の図のように，GlcNAcとβ1,4結合が組めそうな位置関係まで持ってこれたらひとまずOKです．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_16.PNG" width="600px">
 
 ### mopac2016のinputファイル（GalGN3D_fortest.mop）
 1行目の#はコメントなので実際は入力しない
@@ -444,7 +459,6 @@ energy_range=5
 ```
 kubota@ichinose-PC ~
 $ cd c:\vina
-
 kubota@ichinose-PC /cygdrive/c/vina
 $ ./vinaforcygwin2.sh
 ```
