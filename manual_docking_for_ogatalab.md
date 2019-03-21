@@ -218,12 +218,13 @@ Viewerウィンドウのアミノ酸配列部分をスクロールしていく�
 ***
 
 **④AvogadroでPDBファイルを編集する　その1　D構造の編集（結合の追加，削除，角度変更など）**
-ここからは先ほど保存したリガンドのPDBファイル（3ayq_ligand.pdb）をもとに，分子描画および編集ソフトのAvogadroを用いてGalGN3Dを作っていきます．ちなみにGalGN3Dの構造はこんな感じです（[Ogata, M. et al., 2017, Graphical Abstructより](https://doi.org/10.1016/j.ab.2017.09.015)）．これを手掛かりに作っていきます
-
-**注意！Avogadroはびっくりするくらいクラッシュするので，これでもかというくらいこまめに上書き保存を心がけてください．これはマジです．最悪の場合保存操作でクラッシュします．気長にやっていきましょう...**
+ここからは先ほど保存したリガンドのPDBファイル（3ayq_ligand.pdb）をもとに，分子描画および編集ソフトのAvogadroを用いてGalGN3Dを作っていきます．ちなみにGalGN3Dの構造はこんな感じです（[Ogata, M. et al., 2017, Graphical Abstructより](https://doi.org/10.1016/j.ab.2017.09.015)）．
 
 <img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/galgn3d_fig.jpg" width="600px">
 
+これを手掛かりに作っていきます
+
+**注意！Avogadroはびっくりするくらいクラッシュするので，これでもかというくらいこまめに上書き保存を心がけてください．これはマジです．最悪の場合保存操作でクラッシュします．気長にやっていきましょう...**
 
 まずはAvogadroを起動し，**3ayq_ligand.pdb**を読み込むと下のようになると思います．赤丸で囲んだ部分がGalGN3Dの"D"（D構造）のもとになる部分です．二重結合の場所や環のゆがみ方などが若干D構造と違うので，編集してD構造にしていきます．
 
