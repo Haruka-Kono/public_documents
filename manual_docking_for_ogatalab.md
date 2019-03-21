@@ -217,13 +217,39 @@ Viewerウィンドウのアミノ酸配列部分をスクロールしていく�
 
 ***
 
-**④AvogadroでPDBファイルを編集する　その1　結合の編集（追加，削除，角度変更など）**
-ここからは先ほど保存したリガンドのPDBファイル（3ayq_ligand.pdb）をもとに，分子描画および編集ソフトのAvogadroを用いてGalGN3Dを作っていきます．ちなみにGalGN3Dの構造はこんな感じです（[Ogata, M. et al., 2017, Graphical Abstructより](https://doi.org/10.1016/j.ab.2017.09.015)）．これを手掛かりに作っていきます．
+**④AvogadroでPDBファイルを編集する　その1　D構造の編集（結合の追加，削除，角度変更など）**
+ここからは先ほど保存したリガンドのPDBファイル（3ayq_ligand.pdb）をもとに，分子描画および編集ソフトのAvogadroを用いてGalGN3Dを作っていきます．ちなみにGalGN3Dの構造はこんな感じです（[Ogata, M. et al., 2017, Graphical Abstructより](https://doi.org/10.1016/j.ab.2017.09.015)）．これを手掛かりに作っていきます
+
+**注意！Avogadroはびっくりするくらいクラッシュするので，これでもかというくらいこまめに上書き保存を心がけてください．これはマジです．最悪の場合保存操作でクラッシュします．気長にやっていきましょう...**
 
 <img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/galgn3d_fig.jpg" width="600px">
 
-Avogadroを起動し，**3ayq_ligand.pdb**を読み込むと
 
+まずはAvogadroを起動し，**3ayq_ligand.pdb**を読み込むと下のようになると思います．赤丸で囲んだ部分がGalGN3Dの"D"（D構造）のもとになる部分です．二重結合の場所や環のゆがみ方などが若干D構造と違うので，編集してD構造にしていきます．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_1.PNG" width="600px">
+
+下図赤丸の星みたいなやつがAvogadroのデフォルトモードです．左ドラッグで回転，右ドラッグで移動，スクロールで拡大縮小ができます．D構造のもとになる部分が編集しやすいように適宜分子の向きや場所を変えます．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_2.PNG" width="600px">
+
+下図赤丸で囲んだ部分が二重結合になっているので，単結合に直します．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_4.PNG" width="600px">
+
+上のツールバーにて，鉛筆のアイコンをクリックすると，左側のパネルが```Draw Settings```となります．これが結合の追加などをするモードです．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_5.PNG" width="600px">
+
+```Element: Carbon```, ```Bond Order: Single```となっているのを確認し，下図の矢印の通り，C原子からN原子，C原子からO原子へなぞるようにして左ドラッグすると二重結合が単結合になります（矢印はレイアウトの都合上ずらしていますが，実際の操作ではマウスカーソルの始点はC原子です）．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_6.PNG" width="600px">
+
+念のためこのあたりでいったんセーブしておきましょう．もっと前段階でもいいです．とにかく気づいたらセーブしないとマジでクラッシュして無限に同じ操作をやるはめになります．
+
+次に，C27とC26原子の間を二重結合にします．下図のように，```Bond Order: Double```として，C27からC26へとなぞるように左ドラッグします．多分これで二重結合になるはずです．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_7.PNG" width="600px">
 
 ### mopac2016のinputファイル（GalGN3D_fortest.mop）
 1行目の#はコメントなので実際は入力しない
