@@ -101,7 +101,12 @@ PyMOL上側のウィンドウにて，```Plugin```→```AutoDock/Vina```とク�
 ***
 
 **⑤Grid Boxの調整**
+まずBoxの中心をリガンド結合部位のちょうどいいところに持ってきます（ここら辺の位置調整に厳密なルールはないので，自分なりの微調整が必要になってきますが，これは慣れていくしかないです）．PyMOL Viewerにてリガンド分子をクリックします（下図１参照）．すると，Viewerの```(sele)```パネルに選択したリガンドが紐づけられます．
 
+続いて，AutoDock/Vinaプラグインに戻り，```Calculate Grid Center by Selection```の入力欄に**sele**と入力します．その後，```Show Box```をクリックするとBoxの位置が更新され，中心が選択したリガンドのところに来ます（下図2,3参照）．
+
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_regacy_prep_rec_5.PNG" width="640px">
 
 ### mopac2016のinputファイル（GalGN3D_fortest.mop）
 1行目の#はコメントなので実際は入力しない
