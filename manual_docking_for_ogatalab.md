@@ -191,11 +191,28 @@ Viewerウィンドウのアミノ酸配列部分をスクロールしていく�
 
 <img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_ligand_1.PNG" width="500px">
 
-
 スクロールして真ん中くらいのところにいくと，下図のように**NAG**, **4NN**が計4つあると思います．これらを全てドラッグして選択します．
 
-
 <img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_ligand_2.PNG" width="500px">
+
+選択した4つのうちいずれかひとつを右クリックするとパネルが出てくるので，```actions``` → ```extract object```と選択していきます（下図）．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_ligand_3.PNG" width="300px">
+
+すると，選択したリガンドが**obj01**という名前の独立したオブジェクトになります（下図）．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_ligand_4.PNG" width="650px">
+
+***
+
+**③リガンドの保存**
+ウィンドウ上部にて```File``` → ```Export Molecule...```と選択します（下図）．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_ligand_5.PNG" width="300px">
+
+下のように**obj01**を選択した状態で```Save```をクリックし（ほかのオプションは特にいじらなくて大丈夫です），C:\vina\pdb_ligand\に保存します．今回は，**3ayq_ligand.pdb**という名前で保存しました．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_ligand_6.PNG" width="500px">
 
 ### mopac2016のinputファイル（GalGN3D_fortest.mop）
 1行目の#はコメントなので実際は入力しない
