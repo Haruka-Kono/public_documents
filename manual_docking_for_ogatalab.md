@@ -125,6 +125,14 @@ PyMOL Viewerに戻り，右側の```4hp0```パネルから，```A```→```drag c
 
 <img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_regacy_prep_rec_7.PNG" width="620px">
 
+***
+
+**⑦Grid Boxパラメータの記録**
+これでGrid Boxがらみの設定は完了したので，最後にAutoDock/Vinaプラグインに戻り，Grid Boxのサイズ（```Grid Definition > X (Y, Z)-points```）および座標（```Grid Center Coordinates```）をメモしておきます．あるいはこのプラグイン画面をそのまま残しておきます（下図赤丸）．**これらの値は，後にconfigファイルに入力することになるので記録が消えないように注意してください**．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_regacy_prep_rec_8.PNG" width="500px">
+
+
 ### mopac2016のinputファイル（GalGN3D_fortest.mop）
 1行目の#はコメントなので実際は入力しない
 
