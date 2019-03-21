@@ -161,7 +161,15 @@ Viewerウィンドウのアミノ酸配列部分をスクロールしていく�
 その後は，C:\vina\receptor_pdb\にファイルを保存します．今回は，**4HP0_fordock.pdb**というファイル名で保存しました．
 
 
-### 2. リガンドのPDBファイル作成（PyMOL，Avogadro，MOPAC2016を使用）
+### 2. リガンド（GalGN3D）のPDBファイル作成（PyMOL，Avogadro，MOPAC2016を使用）
+続いてはリガンド分子のPDBファイルを用意していきます．基本的に尾形研でドッキングをする場合，自前で合成した新規化合物をリガンドにする場合がほとんどだと思います．その場合，既存のデータベースをそのまま使うことはできないので，似たような構造のリガンドを基に構造をいじっていく必要があります．いじり方は色々あるのですが，今回はPDB ID: 3AYQのリガンドを基にしてGalGN3DのPDBファイルを作る方法について説明します．
+
+**①PyMOLの起動（legacyじゃない方）**
+今回はAutoDock/Vinaプラグインを使う必要がないので，せっかくですしlegacyではない方のPyMOLを使ってみることにします．こちらは上下でバラバラだったウィンドウが統合された他いくつかアップデートされており幾分使いやすくなっています．
+
+タスクバーの検索窓に**pymol**と入力し，下図赤丸の方のPyMOLを選択します．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol.PNG" width="300px">
 
 ### mopac2016のinputファイル（GalGN3D_fortest.mop）
 1行目の#はコメントなので実際は入力しない
