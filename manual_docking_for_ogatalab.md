@@ -164,6 +164,8 @@ Viewerウィンドウのアミノ酸配列部分をスクロールしていく�
 ### 2. リガンド（GalGN3D）のPDBファイル作成（PyMOL，Avogadro，MOPAC2016を使用）
 続いてはリガンド分子のPDBファイルを用意していきます．基本的に尾形研でドッキングをする場合，自前で合成した新規化合物をリガンドにする場合がほとんどだと思います．その場合，既存のデータベースをそのまま使うことはできないので，似たような構造のリガンドを基に構造をいじっていく必要があります．いじり方は色々あるのですが，今回はPDB ID: 3AYQのリガンドを基にしてGalGN3DのPDBファイルを作る方法について説明します．
 
+***
+
 **①PyMOLの起動（legacyじゃない方）**
 今回はAutoDock/Vinaプラグインを使う必要がないので，せっかくですしlegacyではない方のPyMOLを使ってみることにします．こちらは上下でバラバラだったウィンドウが統合された他いくつかアップデートされており幾分使いやすくなっています．
 
@@ -181,6 +183,19 @@ Viewerウィンドウのアミノ酸配列部分をスクロールしていく�
 下図のように，PyMOLの入力窓にて```fetch 3ayq``` → ```Enter```とすると分子が表示されます．この3AYQもリゾチームとキチンオリゴ糖誘導体との複合体構造になっています．ちなみにこちらのPyMOLは大文字小文字を問わないので安心してください．
 
 <img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_fetch_3ayq.PNG" width="300px">
+
+***
+
+**③リガンド抽出**
+ウィンドウ上部にて，```Display``` → ```Sequence```を選択しアミノ酸配列を表示させます．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_ligand_1.PNG" width="500px">
+
+
+スクロールして真ん中くらいのところにいくと，下図のように**NAG**, **4NN**が計4つあると思います．これらを全てドラッグして選択します．
+
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_ligand_2.PNG" width="500px">
 
 ### mopac2016のinputファイル（GalGN3D_fortest.mop）
 1行目の#はコメントなので実際は入力しない
