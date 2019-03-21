@@ -490,6 +490,9 @@ energy_range=3
 
 ### Cygwinでのドッキングの実行
 
+
+実際のTerminalはこんな感じになります．手元のデスクトップでやってみたらフリーズしてしまったので，後半のドッキング実行画面～結果のところは過去の計算結果になっています．
+
 ```
 kubota@ichinose-PC ~
 $ cd c:\vina
@@ -532,8 +535,8 @@ Using random seed: -315345008
 Performing search ...
 0%   10   20   30   40   50   60   70   80   90   100%
 |----|----|----|----|----|----|----|----|----|----|
-*
-```
+***************************************************　　#手元のデスクトップではこの段階（ドッキング実行）でフリーズしました...
+
 Reading input ... done.
 Setting up the scoring function ... done.
 Analyzing the binding site ... done.
