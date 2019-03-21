@@ -302,6 +302,11 @@ Viewerウィンドウのアミノ酸配列部分をスクロールしていく�
 
 <img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_20.PNG" width="600px">
 
+***
+
+**⑥AvogadroでPDBファイルを編集する　その3　構造最適化（MMFF94）**
+これでGalGN3D（っぽい何か）ができましたが，手動でいじった部分がいくつかあるため構造の最適化をする必要があります．
+
 ### mopac2016のinputファイル（GalGN3D_fortest.mop）
 1行目の#はコメントなので実際は入力しない
 
