@@ -251,6 +251,29 @@ Viewerウィンドウのアミノ酸配列部分をスクロールしていく�
 
 <img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_7.PNG" width="600px">
 
+続いて，C29のゆがみ方が反対なので修正します．ツールバーの指アイコンを選択し，C29を左ドラッグして上に持ち上げます．おそらく下図のような向きでやると比較的まっすぐ上がってくれるかと思います．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_8.PNG" width="600px">
+
+上の図を見ると分かるように，C30とO18がとんでもないことになっています．この2原子についても指アイコンモードのまま左ドラッグして自然な位置に持っていきます．あとから構造最適化をかけるのでそこまで厳密にやる必要はないです(下図参照，上からなのでちょっとわかりにくいですが...）．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_10.PNG" width="600px">
+
+これで結合次数などは合わせられたので，ここで水素を付加させます．メニューバーの```Build``` → ```Add Hydrogens```を選択すると水素が付きます．
+クラッシュが怖いのでまたセーブしておきましょう．D構造っぽいもの（まだ構造最適化をしていないので）がこれで出来上がりました．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_11.PNG" width="300px">
+
+***
+
+**⑤AvogadroでPDBファイルを編集する　その2　Galβ1→4GlcNAcを構築する（非還元末端にGalを結合させる）**
+ここまでの段階で，（構造最適化前ではあるものの）GN3Dが出来上がりました．あとはGalを結合させればGalGN3Dになります．
+
+メニューバーにて，```Build``` → ```Insert``` → ```Fragment...``` と選択します（下図）．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_12.PNG" width="300px">
+
+
 ### mopac2016のinputファイル（GalGN3D_fortest.mop）
 1行目の#はコメントなので実際は入力しない
 
