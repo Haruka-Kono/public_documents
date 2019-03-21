@@ -439,3 +439,12 @@ energy_range=5
 
 ```
 
+### Cygwinでのドッキングの実行
+
+```
+kubota@ichinose-PC ~
+$ cd c:\vina
+
+kubota@ichinose-PC /cygdrive/c/vina
+$ ./vinaforcygwin2.sh
+```
