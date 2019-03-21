@@ -48,7 +48,7 @@ C:\
 ```
 
 ### 1. Grid Boxの設定とレセプターのPDBファイル作成（PyMOL，PyMOL-AutoDock/Vina Plugin を使用）
-リガンドの結合範囲を指定するGrid Boxと呼ばれる箱を設定します．同時にレセプター分子（今回はリゾチーム）のPDBファイルも用意します．なお，今回用いるリゾチームのPDB IDは4HP0です．
+リガンドの結合範囲を指定するGrid Boxと呼ばれる箱を設定します．同時にレセプター分子（今回はリゾチーム）のPDBファイルも用意します．少々面倒かもしれませんが，レセプターやGrid Boxは一度設定すれば大抵使いまわしが効きます．なお，今回用いるリゾチームのPDB IDは4HP0です．
 
 ①**PyMOLの起動**
 windowsタスクバーの検索窓に```pymol```と入力し，```PyMOL+Tcl-Tk GUI (legacy)```を起動します（下図）．
@@ -143,16 +143,25 @@ Grid Boxの設定は無事に終わったので，続いてはViewerに残され
 
 Viewerウィンドウのアミノ酸配列部分をスクロールしていくと右端に**NOJ**, **NAG**があるはずです．これがリガンド分子になります．計4つあるのでドラッグして選択します（下図）．
 
-<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_regacy_prep_rec_10.PNG" width="600px">
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_regacy_prep_rec_10.PNG" width="500px">
 
 選択した4分子のいずれか1か所を右クリックすると下図のようなパネルが出てくるので，```remove```を選択します．これでリガンド分子の除去が終わりました．
 
-<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_regacy_prep_rec_11.PNG" width="600px">
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_regacy_prep_rec_11.PNG" width="300px">
 
 
 これで水分子の除去，Boxに合わせた座標の変更およびリガンドの除去が終わったので，この状態でレセプターのPDBファイルを保存します．上部ウィンドウにて```File```→```Export Molecule```と選択します（下図）．
 
-<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_regacy_prep_rec_12.PNG" width="500px">
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_regacy_prep_rec_12.PNG" width="450px">
+
+**下図の赤丸のように選択**し，```OK```をクリックします．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_regacy_prep_rec_15.PNG" width="450px">
+
+その後は，C:\vina\receptor_pdb\にファイルを保存します．今回は，**4HP0_fordock.pdb**というファイル名で保存しました．
+
+
+### 2. リガンドのPDBファイル作成（PyMOL，Avogadro，MOPAC2016を使用）
 
 ### mopac2016のinputファイル（GalGN3D_fortest.mop）
 1行目の#はコメントなので実際は入力しない
