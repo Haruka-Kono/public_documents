@@ -305,7 +305,27 @@ Viewerウィンドウのアミノ酸配列部分をスクロールしていく�
 ***
 
 **⑥AvogadroでPDBファイルを編集する　その3　構造最適化（MMFF94）**
-これでGalGN3D（っぽい何か）ができましたが，手動でいじった部分がいくつかあるため構造の最適化をする必要があります．
+これでGalGN3D（っぽい何か）ができましたが，手動でいじった部分がいくつかあるため構造の最適化をする必要があります．まず，ツールバーにて```Extentions``` → ```Molecular Mechanics``` → ```Setup Force Field...```と選択していきます（下図）．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_21.PNG" width="300px">
+
+```Setup Force Field```ウィンドウが立ち上がるので，下図のような設定になっていることを確認し，OKをクリックします．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_22.PNG" width="300px">
+
+
+ツールバーにて，```Extentions``` → ```Optimize Geometry``` と選択し構造最適化を行います（```Ctrl + Alt + O```でも可）．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_23.PNG" width="300px">
+
+下のような画面になって構造が最適化されていきます．構造変化がほとんど無くなるまで繰り返します（1回でも十分です）．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_25.PNG" width="600px">
+
+**（ここから先の手順は必須ではないですが，手動で構築する箇所が多い構造のために一応行っています．）**
+
+**⑦AvogadroでPDBファイルを編集する　その4　MOPAC用インプットファイル作成**
+半経験的分子軌道法を用いた構造最適化を行うために，入力ファイルをAvogadroで作成します．
 
 ### mopac2016のinputファイル（GalGN3D_fortest.mop）
 1行目の#はコメントなので実際は入力しない
