@@ -290,6 +290,18 @@ Viewerウィンドウのアミノ酸配列部分をスクロールしていく�
 
 <img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_16.PNG" width="600px">
 
+ツールバーで矢印アイコンをクリックし，Viewerの何もないところ（黒いところ）で右クリックをすると現在選択している分子（今回の場合はGal）の選択が解除されます．その後，Galのアノマー水素を左クリックで選択します．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_17.PNG" width="600px">
+
+```Delete```キーにて選択した水素を削除します．同様にして，Galのアノマー酸素，隣にあるGlcNAcのH1も削除します．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_19.PNG" width="600px">
+
+いよいよグリコシド結合を生成させます．ツールバーの鉛筆アイコンをクリックし，```Element: Oxygen```, ```Bond Order: Single```と設定してから，Galのアノマー炭素からGlcNAcのO2をなぞるように左ドラッグし，グリコシド結合を作ります．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_20.PNG" width="600px">
+
 ### mopac2016のinputファイル（GalGN3D_fortest.mop）
 1行目の#はコメントなので実際は入力しない
 
