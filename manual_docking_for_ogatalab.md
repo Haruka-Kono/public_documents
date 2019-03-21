@@ -132,6 +132,27 @@ PyMOL Viewerに戻り，右側の```4hp0```パネルから，```A```→```drag c
 
 <img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_regacy_prep_rec_8.PNG" width="500px">
 
+***
+
+**⑧レセプター分子の保存**
+Grid Boxの設定は無事に終わったので，続いてはViewerに残されたレセプター分子の操作に戻ります．先ほどGrid Boxに合わせて分子の座標を変えているので，その状態を維持して保存します．
+
+まず，PyMOLの上部ウィンドウにて，```Display``` → ```Seqence```を選択すると，Viewerにアミノ酸配列が表示されます（下図）．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_regacy_prep_rec_9.PNG" width="600px">
+
+Viewerウィンドウのアミノ酸配列部分をスクロールしていくと右端に**NOJ**, **NAG**があるはずです．これがリガンド分子になります．計4つあるのでドラッグして選択します（下図）．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_regacy_prep_rec_10.PNG" width="600px">
+
+選択した4分子のいずれか1か所を右クリックすると下図のようなパネルが出てくるので，```remove```を選択します．これでリガンド分子の除去が終わりました．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_regacy_prep_rec_11.PNG" width="600px">
+
+
+これで水分子の除去，Boxに合わせた座標の変更およびリガンドの除去が終わったので，この状態でレセプターのPDBファイルを保存します．上部ウィンドウにて```File```→```Export Molecule```と選択します（下図）．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_regacy_prep_rec_12.PNG" width="500px">
 
 ### mopac2016のinputファイル（GalGN3D_fortest.mop）
 1行目の#はコメントなので実際は入力しない
