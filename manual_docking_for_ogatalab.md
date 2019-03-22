@@ -422,13 +422,44 @@ Title
 
 <img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/adt_3.PNG" width="400px">
 
+分子が読み込まれたと思います．ここから少しだけ分子を編集します．具体的に言うと極性水素の付加です．メニューバーにて，```Edit``` → ```Hydrogens``` → ```Add```と選択していきます（下図）．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/adt_4.PNG" width="500px">
+
+```Add Hydrogens```ウィンドウが立ち上がるので，下図のように```Polar Only```にチェックを入れ，OKをクリックして極性水素を付加させます．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/adt_5.PNG" width="300px">
+
+分子に水素が付いたのが分かるかと思います．続いてpdbqtファイルの生成に入ります．オレンジの背景のADTツールバー（下図）にて，```Grid``` → ```Macromolecules``` → ```Choose``` と選択していきます．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/adt_6.PNG" width="600px">
+
+```Choose Macromolecule```ウィンドウが立ち上がるので，4HP0_fordockを選択して```Select Molecule```をクリックします．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/adt_7.PNG" width="300px">
+
+下図のようなポップアップが出るのでOKを押して続行します．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/adt_8.PNG" width="300px">
+
+あとはpdbqtファイルを保存します．今回は，```c:\vina\receptor_pdbqt\```に**4HP0_fordock.pdbqt**というファイル名で保存しました．
+
+レセプター分子はもう表示させておく必要がないので，下図のように左側のパネルにある```4HP0_fordock```を右クリックし，```Delete```を選択して消去してOKです．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/adt_13.PNG" width="300px">
+
+***
+
+**②リガンドのpdbqtファイル作成**
+続いてはリガンドのpdbqtファイルを作成します．ADTツールバーにて```Ligand``` → ```Input``` → ```Open```を選択します（下図）．
+
 
 
 ### 設定ファイル (configファイル) の構成
 ``` julia
 
 
-receptor=c:\vina\receptor_pdbqt\4HP0_fordock.pdbqt
+receptor=c:\vina\receptor_pdbqt\4HP0_fordock.pdbqt #レセプターファイルを指定する部分です．
  
 center_x=23.47     #ここが先ほど記録したBoxの中心座標を指定する部分です．
 center_y=4.38
