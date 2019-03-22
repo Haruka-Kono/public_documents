@@ -391,7 +391,7 @@ Title
 <img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/mopac_3.PNG" width="600px">
 
 今回は，GalGN3D_fortest.pdbをGalGN3D_am1.pdbに名前変更し、C:\vina\pdb_ligand\4HP0_test\へと移動しました．
-これでリガンドのPDBファイルを作成しました．お疲れさまでした．あとはレセプター，リガンドのpdbqtファイルを作ればドッキング実行です．
+これでリガンドのPDBファイルを作成しました．お疲れさまでした．あとはレセプター，リガンドのpdbqtファイル，configファイルを作ればドッキング実行です．
 
 ### 3. レセプター，リガンドのPDBファイルからpdbqtファイルを作成（AutoDockToolsを使用）
 あともう少しでドッキングです．頑張っていきましょう．さて，これまでの操作で揃ったのは
@@ -450,12 +450,37 @@ Title
 
 ***
 
-**②リガンドのpdbqtファイル作成**
+**③リガンドのpdbqtファイル作成**
 続いてはリガンドのpdbqtファイルを作成します．ADTツールバーにて```Ligand``` → ```Input``` → ```Open```を選択します（下図）．
 
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/adt_9.PNG" width="400px">
 
+下図のように，ファイル形式を```PDB files```に指定してからリガンドを読み込みます．今回は，GalGN3D_am1.pdbを読み込みます．
 
-### 設定ファイル (configファイル) の構成
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/adt_10.PNG" width="500px">
+
+下のようなポップアップが出ます．これは原子電荷を自動で割り振ってくれて，かつ非極性水素を除去してくれたことを表しています．系によってはこの操作が余計なお世話になることもあります（設定でオフにできますが今回は割愛します）が，今回はこのままで大丈夫です．後半の2行はリガンドの回転可能結合に関する記述です．OKをクリックするとGalGN3D_am1.pdbが読み込まれます．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/adt_11.PNG" width="300px">
+
+回転可能部位について確認するために，ADTツールバーにて，```Ligand``` → ```Torsion Tree``` → ```Choose Torsions```と選択していきます（下図）．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/adt_12.PNG" width="400px">
+
+```Torsion Count```ウィンドウが立ち上がり，同時にビューワーのリガンドも色が変わります（下図）．このウィンドウでは回転する結合を指定することができます．今回はデフォルトのままでよいので，そのまま```Done```をクリックします．計算コストを減らしたい場合は最低限回したい部分だけ回転可能部位に指定する場合もありますが，そこが回るためには実はほかの箇所も回転しなくてはいけなかった...というパターンもあるので要注意部分です．基本はデフォルトのままでいいと思います．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/adt_15.PNG" width="600px">
+
+いよいよリガンドのpdbqtファイルを生成します．ADTツールバーにて```Ligand``` → ```Output``` → ```Save as PDBQT```と選択していきます（下図）．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/adt_16.PNG" width="400px">
+
+今回は，c:\vina\pdbqt_ligand\4hp0_test\の下に，**GalGN3D_am1.pdbqt**というファイル名で保存しました．
+これでリガンドのpdbqtファイルも完成です．いよいよドッキングまであと一歩です．
+
+### 4. 設定ファイル (configファイル) の作成
+ここまでの手順でとりあえず材料はそろったので，あとはドッキングの設定を記述したconfigファイルを作ります．ファイル形式は基本的には.txtとなります．それ以外でもテキストデータとして認識されるなら大丈夫ですが，.txtが一番無難です．メモ帳などのテキストエディタを開き，以下の内容を記載してc:\vina\config\　に**4hp0_test.txt**というファイル名で保存します．
+
 ``` julia
 
 
@@ -476,16 +501,28 @@ num_modes=100　　#ここは大抵100が目安です．どこかで読んだ開
 energy_range=3　　#ここは，1番良いスコア（binding affinity [kcal/mol] )のドッキングポーズからどのくらいのエネルギー差までの結果を出力するかを指定する部分です．大体3くらいで問題ないと思います．そもそも結果が最大で20までしか出力されないので．
 
 ```
+保存したら，いよいよ計算です．
 
-### Cygwinでのドッキングの実行
+### 5. Cygwinでのドッキングの実行
+本来であればコマンドプロンプトでもいいのですが，昔私が作ったプログラムの関係上，cygwinというものを使ってAutoDock Vinaを動かします（すみません）．
+まず，cygwin terminalを起動します．
 
+その後，```cd c:\vina```と入力してエンターキーを押します．これでC:\vinaのフォルダへと移動することができました．
+
+ここからがいよいよドッキングです．Terminalにて```./vinaforcygwin2.sh```と入力します．すると，c:\vina\dock_resultの下にあるフォルダ一覧が表示されます．``` input saved directory (example:'directory_name/' or 'directory_name')```と表示されるので，データを保存するフォルダの名前を入力します．今回は，```4hp0_test```と入力し，エンターキーを押します．
+
+続いて， ```config files list``` と表示され，c:\vina\config\　にある.txtファイルの一覧が表示されます．```select config file with '.txt' (example:'config.txt')```と表示されるので，今回は```4hp0_test.txt```と入力し，エンターキーを押します．
+
+最後に，```ligand directories list```と表示され，ここに c:\vina\pdbqt_ligand\ にあるフォルダの一覧が表示されます． ```select ligand included directory  (example:'directory_name/' or 'directory_name')```と表示されるので，今回は4hp0_testというフォルダにGalGN3D_am1.pdbqtを入れてあるので，```4hp0_test```と入力しエンターキーを押します．
+
+これでドッキングがスタートします．今回の系だと，尾形研ワークステーションで1時間弱かかるかと思います．
 
 実際のTerminalはこんな感じになります．手元のデスクトップでやってみたらフリーズしてしまったので，後半のドッキング実行画面～結果のところは過去の計算結果になっています（#はコメントなので実際は表示されません）．
 
 ```
-kubota@ichinose-PC ~
+User@User-PC ~
 $ cd c:\vina
-kubota@ichinose-PC /cygdrive/c/vina
+User@User-PC /cygdrive/c/vina
 $ ./vinaforcygwin2.sh
  directories list
 # ここに c:\vina\dock_result\ にあるフォルダ一覧が表示されます
@@ -494,6 +531,7 @@ $ ./vinaforcygwin2.sh
 mkdir: ディレクトリ './4hp0_test' を作成しました
  config files list
 # ここに c:\vina\config\　にある.txtファイルの一覧が表示されます
+ select config file with '.txt' (example:'config.txt')
 4hp0_test.txt
  selected config file is '4hp0_test.txt'
  ligand directories list
@@ -559,8 +597,75 @@ mode |   affinity | dist from best mode
 Writing output ... done.
 ```
 
-### ドッキング結果の確認
- ```input saved directory (example:'directory_name/' or 'directory_name')　```にて入力したフォルダがC:\vina\dock_result\の下に作成されています．今回の場合は，4hp0_testというフォルダができているはずです．フォルダの中身を見てみると，下記のようなファイル群が入っていると思います（ただ，今回は前述のフリーズ案件のため昔のファイルを引っ張ってきているので，上記スクリプトを動かしたときとは若干構成が異なっている場合があります）．
+### 6. ドッキング結果の確認
+例としてかつて実行したドッキングの結果を使って説明していきます．
+
+先ほど， ```input saved directory (example:'directory_name/' or 'directory_name')　```にて入力したフォルダがC:\vina\dock_result\の下に作成されています．今回の場合は，4hp0_testというフォルダができているはずです．フォルダの中身を見てみると，下記のようなファイル群が入っていると思います（ただ，今回は前述のフリーズ案件のため昔のファイルを引っ張ってきているので，上記スクリプトを動かしたときとは若干構成が異なっている場合があります）．
  
 <img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/dock_result_folder.PNG" width="600px">
+
+logファイルには以下のようなものが記載されています．ドッキング中にターミナルに出ていたやつをそのまま出力した感じです．
+
+```
+#################################################################
+# If you used AutoDock Vina in your work, please cite:          #
+#                                                               #
+# O. Trott, A. J. Olson,                                        #
+# AutoDock Vina: improving the speed and accuracy of docking    #
+# with a new scoring function, efficient optimization and       #
+# multithreading, Journal of Computational Chemistry 31 (2010)  #
+# 455-461                                                       #
+#                                                               #
+# DOI 10.1002/jcc.21334                                         #
+#                                                               #
+# Please see http://vina.scripps.edu for more information.      #
+#################################################################
+
+Reading input ... done.
+Setting up the scoring function ... done.
+Analyzing the binding site ... done.
+Using random seed: 1979236480
+Performing search ... done.
+Refining results ... done.
+
+mode |   affinity | dist from best mode
+     | (kcal/mol) | rmsd l.b.| rmsd u.b.
+-----+------------+----------+----------
+   1         -9.2      0.000      0.000
+   2         -8.9      1.854      3.538
+   3         -8.8      1.840      2.361
+   4         -8.8      1.945      3.062
+   5         -8.6      1.669      2.956
+   6         -8.6      1.894      2.583
+   7         -8.5      2.302     13.360
+   8         -8.3      3.359     14.474
+   9         -8.1      2.916      6.220
+  10         -8.1      2.443     13.374
+  11         -8.0      1.747      2.211
+  12         -8.0      2.659     13.917
+  13         -8.0      3.267     14.270
+  14         -7.8      2.061     13.497
+  15         -7.8      3.329     14.781
+  16         -7.8      3.687     14.182
+  17         -7.8      3.939     14.777
+  18         -7.8      3.995      9.264
+  19         -7.7      2.121      3.169
+  20         -7.7      3.442     14.503
+Writing output ... done.
+
+```
+
+ここで確認すべきは最後の結果の部分です．```mode``` がスコアの順位を表しています．今回は1位から20位まで20個の結果が出力されています．```affinity```は結合親和性です．ただ，ドッキングで出てきたアフィニティーはそんなに正確ではありません．相対的に高いか低いかで比べる感じですね．その右にある2列は気にしなくて大丈夫です．
+
+それでは，GalGN3D_am1_out.pdbqtをPyMOLで開いてみましょう．ドッキングで使用したレセプター分子も一緒に開くと結合の様子がよくわかります．また，今回の場合は比較として4HP0をドッキング結果に重ね合わせてみます．下図はスコアが1位だった構造です．あまり4HP0のリガンドとはよく重なっていないのが分かります．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/dock_result_1.PNG" width="600px">
+
+左右の矢印キーで違う順位のドッキングポーズも見ることができます．下図は5位のドッキングポーズです．こちらは4HP0のリガンドとよく重なっていることが分かります．フリーソフトのわりにきっちりドッキングできるのがAutoDock Vinaのいいところです．実際に論文でも結構使われています．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/dock_result_2.PNG" width="600px">
+
+
+説明は以上となります．ところどころ端折ってしまったところもありますが，何かありましたら冒頭に書いた連絡先に連絡をお願いします．
+
 
