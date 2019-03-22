@@ -375,6 +375,8 @@ Title
 
 <img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/mopac_3.PNG" width="600px">
 
+今回は，GalGN3D_fortest.pdbをGalGN3D_am1.pdbに名前変更し、C:\vina\pdb_ligand\4HP0_test\へと移動しました．
+
 ### 設定ファイル (configファイル) の構成
 ``` julia
 
