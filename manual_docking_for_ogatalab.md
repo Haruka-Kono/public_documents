@@ -132,6 +132,21 @@ PyMOL Viewerに戻り，右側の```4hp0```パネルから，```A```→```drag c
 
 <img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_regacy_prep_rec_8.PNG" width="500px">
 
+画像が見えにくいかもしれないので数字を補足すると，今回の場合は以下のようになります．
+
+```
+#Grid Box各辺のサイズ
+X-points: 18
+Y-points: 30
+Z-points: 15
+
+#Grid Boxの中心座標
+X: 23.47
+Y: 4.38
+Z: -8.27
+
+```
+
 ***
 
 **⑧レセプター分子の保存**
@@ -322,7 +337,7 @@ Viewerウィンドウのアミノ酸配列部分をスクロールしていく�
 
 <img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_25.PNG" width="600px">
 
-**（ここから先の，MOPAC関連の手順は必須ではないですが，手動で構築する箇所が多い構造のために一応行っています．）**
+**（ここから先の，MOPAC関連の手順は必須ではないですが，手動で構築する箇所が多い構造のために一応行っています．もしMOPACによる最適化をやらない場合，この段階でC:\vina\pdb_ligand\4hp0_test\に作成したPDBファイルを保存して，AutoDockToolsによるpdbqtファイルの作成へと進んでください．）**
 
 ***
 
@@ -376,6 +391,38 @@ Title
 <img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/mopac_3.PNG" width="600px">
 
 今回は，GalGN3D_fortest.pdbをGalGN3D_am1.pdbに名前変更し、C:\vina\pdb_ligand\4HP0_test\へと移動しました．
+これでリガンドのPDBファイルを作成しました．お疲れさまでした．あとはレセプター，リガンドのpdbqtファイルを作ればドッキング実行です．
+
+### 3. レセプター，リガンドのPDBファイルからpdbqtファイルを作成（AutoDockToolsを使用）
+あともう少しでドッキングです．頑張っていきましょう．さて，これまでの操作で揃ったのは
+- Grid Boxの設定
+- レセプターのPDBファイル
+- リガンドのPDBファイル
+となります．下2つについて，PDBからpdbqtファイルへと変換する操作をこれからやっていきます．
+
+***
+
+**①AutoDockToolsの起動**
+まず，タスクバーの検索窓に**adt**と打ち込むと下図のようにAutoDockToolsが出てくるので起動します．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/adt_open.PNG" width="300px">
+
+起動すると以下のような画面になります．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/adt_1.PNG" width="600px">
+
+***
+
+**②レセプターのpdbqtファイル作成**
+まずはレセプターの処理をしていきます．下図のように，フォルダみたいなアイコンをクリックします．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/adt_2.PNG" width="600px">
+
+下図のようにウィンドウが立ち上がるので，最初に作成した**4HP0_fordock.pdb**を開きます．
+
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/adt_3.PNG" width="400px">
+
+
 
 ### 設定ファイル (configファイル) の構成
 ``` julia
@@ -383,26 +430,26 @@ Title
 
 receptor=c:\vina\receptor_pdbqt\4HP0_fordock.pdbqt
  
-center_x=23.47	
+center_x=23.47     #ここが先ほど記録したBoxの中心座標を指定する部分です．
 center_y=4.38
 center_z=-8.27
 
-size_x=18	
+size_x=18          #こちらは，先ほど記録しておいたBox各辺のサイズを指定する部分です
 size_y=30
 size_z=15
 
-cpu=8
+cpu=8    #計算に使うcpuコア数を指定します．これは計算環境によって変わりますが，確か尾形研のワークステーションならこれでよかったはずです．
 
-exhaustiveness = 50
-num_modes=100
-energy_range=3
+exhaustiveness = 50　#ここは少し説明が難しいですが，「どのくらい徹底的に最適なドッキングポーズを探索するか」を決めるパラメータです．大きくすると計算時間がかかります．今回のようにリガンドの回転可能部分が多く，計算量が多くなるような系ではここを大きくする必要があります．
+num_modes=100　　#ここは大抵100が目安です．どこかで読んだ開設曰く計算回数の指定らしいのですが，マニュアルを見るとどうもそうは見えず...　ただ，一応いつもこの値にしています．
+energy_range=3　　#ここは，1番良いスコア（binding affinity [kcal/mol] )のドッキングポーズからどのくらいのエネルギー差までの結果を出力するかを指定する部分です．大体3くらいで問題ないと思います．そもそも結果が最大で20までしか出力されないので．
 
 ```
 
 ### Cygwinでのドッキングの実行
 
 
-実際のTerminalはこんな感じになります．手元のデスクトップでやってみたらフリーズしてしまったので，後半のドッキング実行画面～結果のところは過去の計算結果になっています．
+実際のTerminalはこんな感じになります．手元のデスクトップでやってみたらフリーズしてしまったので，後半のドッキング実行画面～結果のところは過去の計算結果になっています（#はコメントなので実際は表示されません）．
 
 ```
 kubota@ichinose-PC ~
@@ -410,16 +457,16 @@ $ cd c:\vina
 kubota@ichinose-PC /cygdrive/c/vina
 $ ./vinaforcygwin2.sh
  directories list
-# kokoni c:\vina\dock_result ni aru foruda ichiran ga hyoji saremasu
+# ここに c:\vina\dock_result\ にあるフォルダ一覧が表示されます
  input saved directory (example:'directory_name/' or 'directory_name')
 4hp0_test
 mkdir: ディレクトリ './4hp0_test' を作成しました
  config files list
-# kokoni c:\vina\config ni aru txt no ichiran ga hyuoji saremasu
+# ここに c:\vina\config\　にある.txtファイルの一覧が表示されます
 4hp0_test.txt
  selected config file is '4hp0_test.txt'
  ligand directories list
-# kokoni c:\vina\pdbqt_ligand\ ni aru foruda no ichiran ga hyuoji saremasu
+# ここに c:\vina\pdbqt_ligand\ にあるフォルダの一覧が表示されます
  select ligand included directory  (example:'directory_name/' or 'directory_name')
 4hp0_test/
  selected directory is '4hp0_test'
@@ -446,7 +493,7 @@ Using random seed: -315345008
 Performing search ...
 0%   10   20   30   40   50   60   70   80   90   100%
 |----|----|----|----|----|----|----|----|----|----|
-***************************************************　　#手元のデスクトップではこの段階（ドッキング実行）でフリーズしました...
+***************************************************　　#手元のデスクトップではこの段階（ドッキング実行，2%くらい）でフリーズしました...
 
 Reading input ... done.
 Setting up the scoring function ... done.
@@ -479,3 +526,10 @@ mode |   affinity | dist from best mode
   19         -7.7      2.121      3.169
   20         -7.7      3.442     14.503
 Writing output ... done.
+```
+
+### ドッキング結果の確認
+ ```input saved directory (example:'directory_name/' or 'directory_name')　```にて入力したフォルダがC:\vina\dock_result\の下に作成されています．今回の場合は，4hp0_testというフォルダができているはずです．フォルダの中身を見てみると，下記のようなファイル群が入っていると思います（ただ，今回は前述のフリーズ案件のため昔のファイルを引っ張ってきているので，上記スクリプトを動かしたときとは若干構成が異なっている場合があります）．
+ 
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/dock_result_folder.PNG" width="600px">
+
