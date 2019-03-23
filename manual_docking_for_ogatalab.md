@@ -243,37 +243,37 @@ Viewerウィンドウのアミノ酸配列部分をスクロールしていく�
 
 まずはAvogadroを起動し，**3ayq_ligand.pdb**を読み込むと下のようになると思います．赤丸で囲んだ部分がGalGN3Dの"D"（D構造）のもとになる部分です．二重結合の場所や環のゆがみ方などが若干D構造と違うので，編集してD構造にしていきます．
 
-<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_1.PNG" width="600px">
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_1.PNG" width="450px">
 
 下図赤丸の星みたいなやつがAvogadroのデフォルトモードです．左ドラッグで回転，右ドラッグで移動，スクロールで拡大縮小ができます．D構造のもとになる部分が編集しやすいように適宜分子の向きや場所を変えます．
 
-<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_2.PNG" width="600px">
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_2.PNG" width="500px">
 
 下図赤丸で囲んだ部分が二重結合になっているので，単結合に直します．
 
-<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_4.PNG" width="600px">
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_4.PNG" width="300px">
 
 上のツールバーにて，鉛筆のアイコンをクリックすると，左側のパネルが```Draw Settings```となります．これが結合の追加などをするモードです．
 
-<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_5.PNG" width="600px">
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_5.PNG" width="500px">
 
 ```Element: Carbon```, ```Bond Order: Single```となっているのを確認し，下図の矢印の通り，C原子からN原子，C原子からO原子へなぞるようにして左ドラッグすると二重結合が単結合になります（矢印はレイアウトの都合上ずらしていますが，実際の操作ではマウスカーソルの始点はC原子です）．
 
-<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_6.PNG" width="600px">
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_6.PNG" width="500px">
 
 念のためこのあたりでいったんセーブしておきましょう．もっと前段階でもいいです．とにかく気づいたらセーブしないとマジでクラッシュして無限に同じ操作をやるはめになります．
 
 次に，C27とC26原子の間を二重結合にします．下図のように，```Bond Order: Double```として，C27からC26へとなぞるように左ドラッグします．多分これで二重結合になるはずです．
 
-<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_7.PNG" width="600px">
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_7.PNG" width="500px">
 
 続いて，C29のゆがみ方が反対なので修正します．ツールバーの指アイコンを選択し，C29を左ドラッグして上に持ち上げます．おそらく下図のような向きでやると比較的まっすぐ上がってくれるかと思います．
 
-<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_8.PNG" width="600px">
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_8.PNG" width="500px">
 
 上の図を見ると分かるように，C30とO18がとんでもないことになっています．この2原子についても指アイコンモードのまま左ドラッグして自然な位置に持っていきます．あとから構造最適化をかけるのでそこまで厳密にやる必要はないです(下図参照，上からなのでちょっとわかりにくいですが...）．
 
-<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_10.PNG" width="600px">
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_10.PNG" width="500px">
 
 これで結合次数などは合わせられたので，ここで水素を付加させます．メニューバーの```Build``` → ```Add Hydrogens```を選択すると水素が付きます．
 クラッシュが怖いのでまたセーブしておきましょう．D構造っぽいもの（まだ構造最適化をしていないので）がこれで出来上がりました．
@@ -295,7 +295,7 @@ Viewerウィンドウのアミノ酸配列部分をスクロールしていく�
 
 これで下図のようにGalが挿入されます．遠くの方で青く選択されているオブジェクトがGalです...遠いですね．めちゃくちゃ遠いです．
 
-<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_14.PNG" width="600px">
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_14.PNG" width="500px">
 
 そこで，ツールバーで指アイコンを選択し，左ドラッグなどを駆使して末端のGlcNAcにGalを近づけていきます（下図）．ちなみに，右ドラッグで選択された分子のみ回転します．このテクニックも必要になってきます．後は，```Navigation Tool```（ツールバーの星型アイコンをクリックするとそのモードになる）で画面を回転させたりしながらうまいこと近づけていってください．なお，分子の選択ですが，ツールバーの矢印アイコンをクリックすると選択モードになります．ただ，ここでは使わなくて大丈夫です．
 
@@ -307,15 +307,15 @@ Viewerウィンドウのアミノ酸配列部分をスクロールしていく�
 
 ツールバーで矢印アイコンをクリックし，Viewerの何もないところ（黒いところ）で右クリックをすると現在選択している分子（今回の場合はGal）の選択が解除されます．その後，Galのアノマー水素を左クリックで選択します．
 
-<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_17.PNG" width="600px">
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_17.PNG" width="500px">
 
 ```Delete```キーにて選択した水素を削除します．同様にして，Galのアノマー酸素，隣にあるGlcNAcのH1も削除します．
 
-<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_19.PNG" width="600px">
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_19.PNG" width="500px">
 
 いよいよグリコシド結合を生成させます．ツールバーの鉛筆アイコンをクリックし，```Element: Oxygen```, ```Bond Order: Single```と設定してから，Galのアノマー炭素からGlcNAcのO2をなぞるように左ドラッグし，グリコシド結合を作ります．
 
-<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_20.PNG" width="600px">
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/avogadro_20.PNG" width="500px">
 
 ***
 
