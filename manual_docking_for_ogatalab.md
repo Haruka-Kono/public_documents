@@ -55,7 +55,7 @@ windowsタスクバーの検索窓に```pymol```と入力し，```PyMOL+Tcl-Tk G
 
 ※本来は下図の上に出ているPyMOLが使いやすくていいのですが，AutoDockのプラグインがそちらだとうまく動かないため，本操作に限ってはlegacyの方を利用します．
 
-<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_legacy_forGridBox.PNG" width="450px">
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_legacy_forGridBox.PNG" width="300px">
 
 こんな感じの画面が出てきます．ウィンドウは上（The PyMOL Molecular Graphics System）と下（PyMOL Viewer）がバラバラになっており，ちょっとめんどくさいです．legacyではない通常のPyMOLはウィンドウが一体化しています．Grid Boxの設定が絡んでこない場合はそちらを使うのが楽です．
 
@@ -68,7 +68,7 @@ windowsタスクバーの検索窓に```pymol```と入力し，```PyMOL+Tcl-Tk G
 上の方にある入力窓（下図参照）に，``` fetch 4HP0 ``` と入力-> ```Enter``` 
 legacyバージョンのPyMOLはIDのアルファベットを大文字にしないと認識してくれないのでそこは注意してください．
 
-<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_legacy_fetch.PNG" width="500px">
+<img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_legacy_fetch.PNG" width="400px">
 
 
 ***
