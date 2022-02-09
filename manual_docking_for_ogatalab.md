@@ -1,6 +1,8 @@
-# AutoDock-Vinaを用いたドッキングシミュレーションマニュアル（保存用）
+# AutoDock-Vinaを用いたドッキングシミュレーションマニュアル（保存用・リゾチームとオリゴ糖のドッキング）
 
 # はじめに
+※マニュアル中でGalGN3Dが登場しますが、これについては論文化済みなので公開リポジトリにマニュアルを置いておきます。
+
 本マニュアルは，AutoDock Vinaというドッキングシミュレーションソフトを用いてタンパク質とリガンドのドッキングシミュレーションを行う方法について説明したものです．ちなみに，マニュアル本体は[https://github.com/Haruk-Kono/public_documents/blob/master/manual_docking_for_ogatalab.md](https://github.com/Haruk-Kono/public_documents/blob/master/manual_docking_for_ogatalab.md) にあります．もしかしたら更新するかもしれないので最新版はリンクを参照してもらえると幸いです．
 何か質問がありましたら，マニュアル監修者にメールください（kono.h.ab@m.titech.ac.jp）．　2019年3月某日　河野（2016年度尾形研卒）
 
@@ -48,12 +50,12 @@ C:\
 ```
 
 ### 1. Grid Boxの設定とレセプターのPDBファイル作成（PyMOL，PyMOL-AutoDock/Vina Plugin を使用）
-リガンドの結合範囲を指定するGrid Boxと呼ばれる箱を設定します．同時にレセプター分子（今回はリゾチーム）のPDBファイルも用意します．少々面倒かもしれませんが，レセプターやGrid Boxは一度設定すれば大抵使いまわしが効きます．なお，今回用いるリゾチームのPDB IDは4HP0です．
+リガンドの結合範囲を指定するGrid Boxと呼ばれる箱を設定します．同時にレセプター分子（今回はリゾチーム）のPDBファイルも用意します．少々面倒かもしれませんが，レセプターやGrid Boxは一度設定すれば大抵使いまわしが効きます．なお，今回用いるリゾチームのPDB IDは[4HP0](https://www.rcsb.org/structure/4hp0) です．
 
 ①**PyMOLの起動**
 windowsタスクバーの検索窓に```pymol```と入力し，```PyMOL+Tcl-Tk GUI (legacy)```を起動します（下図）．
 
-※本来は下図の上に出ているPyMOLが使いやすくていいのですが，AutoDockのプラグインがそちらだとうまく動かないため，本操作に限ってはlegacyの方を利用します．
+**※本来は下図の上に出ているPyMOLが使いやすくていいのですが，AutoDockのプラグインがそちらだとうまく動かないため，本操作に限ってはlegacyの方を利用します．**
 
 <img src="https://github.com/Haruk-Kono/public_documents/blob/master/dock_manual/pymol_legacy_forGridBox.PNG" width="300px">
 
